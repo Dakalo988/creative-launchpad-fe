@@ -57,30 +57,26 @@ const ContactSection = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      const text = `New Contact Message\n\n` +
+        `Name: ${data.name}\n` +
+        `Email: ${data.email}\n` +
+        `Phone: ${data.phone}\n` +
+        `Message: ${data.message}`;
+      const encoded = encodeURIComponent(text);
+      const phoneNumber = '27826656051';
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encoded}`;
+
+      window.open(whatsappUrl, '_blank');
+      toast({
+        title: "Opening WhatsApp…",
+        description: "Review and send your pre-filled message.",
       });
-      
-      const result = await response.json();
-      
-      if (result.success) {
-        toast({
-          title: "Message sent successfully!",
-          description: result.message,
-        });
-        form.reset();
-      } else {
-        throw new Error(result.error || 'Failed to send message');
-      }
+      form.reset();
     } catch (error) {
       toast({
-        title: "Error sending message",
+        title: "Error",
         description: error instanceof Error ? error.message : "Please try again or contact us directly.",
         variant: "destructive",
       });

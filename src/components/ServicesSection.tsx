@@ -128,31 +128,26 @@ const ServicesSection = () => {
 
   const onSubmit = async (data: SelectionFormData) => {
     if (!selectedService) return;
-    try {
-      const response = await fetch('/api/service-selection', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          service: selectedService,
-          ...data,
-        }),
-      });
-      const result = await response.json();
-      if (result.success) {
-        toast({ title: "Request sent!", description: result.message });
-        form.reset();
-        setIsDialogOpen(false);
-        setSelectedService(null);
-      } else {
-        throw new Error(result.error || 'Failed to send request');
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Please try again or contact us directly.",
-        variant: "destructive",
-      });
-    }
+
+    const text = `New Service Inquiry\n\n` +
+      `Service: ${selectedService}\n` +
+      `Name: ${data.name}\n` +
+      `Email: ${data.email}\n` +
+      `Phone: ${data.phone}\n` +
+      `Message: ${data.message || 'N/A'}`;
+    const encoded = encodeURIComponent(text);
+    const phoneNumber = '27826656051';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encoded}`;
+
+    window.open(whatsappUrl, '_blank');
+    toast({
+      title: 'Opening WhatsApp…',
+      description: 'Review and send your pre-filled message.',
+    });
+
+    form.reset();
+    setIsDialogOpen(false);
+    setSelectedService(null);
   };
 
   return (
