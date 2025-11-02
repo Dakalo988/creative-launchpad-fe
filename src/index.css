@@ -4,81 +4,92 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
+
+ZwieX Brand Colors:
+- Primary: Vibrant electric blue/cyan (#00D9FF) - Innovation & Technology
+- Secondary: Pure white accent - Clean & Premium
+- Background: Deep space black (#000000) - Futuristic & Bold
 */
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 220 20% 15%;
+    /* Light theme as default */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 15%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Electric Cyan (#00D9FF) */
+    --primary: 188 100% 50%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 180 62% 55%;
-    --secondary-foreground: 220 20% 15%;
+    /* Secondary */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 20% 95%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 180 62% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 20% 96%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 221 83% 53%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 188 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(250 70% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53% / 0.1), hsl(180 62% 55% / 0.1));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 99%));
+    /* Custom ZwieX design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(188 100% 50%), hsl(200 100% 60%));
+    --gradient-hero: linear-gradient(180deg, hsl(188 100% 50% / 0.08), hsl(188 100% 50% / 0.04));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    --gradient-text: linear-gradient(135deg, hsl(188 100% 45%), hsl(222 47% 11%));
     
-    --shadow-sm: 0 2px 8px hsl(221 83% 53% / 0.08);
-    --shadow-md: 0 4px 16px hsl(221 83% 53% / 0.12);
-    --shadow-lg: 0 8px 32px hsl(221 83% 53% / 0.16);
-    --shadow-glow: 0 0 40px hsl(180 62% 55% / 0.3);
+    --shadow-sm: 0 2px 8px hsl(188 100% 50% / 0.08);
+    --shadow-md: 0 4px 16px hsl(188 100% 50% / 0.12);
+    --shadow-lg: 0 8px 24px hsl(188 100% 50% / 0.16);
+    --shadow-glow: 0 0 28px hsl(188 100% 50% / 0.35);
+    --shadow-glow-intense: 0 0 44px hsl(188 100% 50% / 0.5);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 220 25% 8%;
-    --foreground: 210 20% 98%;
+    /* Dark theme overrides */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 210 20% 98%;
+    --card: 220 15% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 12%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 220 15% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 188 100% 50%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 180 62% 55%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 20% 92%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 220 20% 16%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 220 15% 12%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 180 62% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 18%;
-    --ring: 221 83% 53%;
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 188 100% 50%;
   }
 }
 
@@ -89,5 +100,39 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Default to light color scheme; switch when .dark is on root */
+  :root { color-scheme: light; }
+  .dark { color-scheme: dark; }
+}
+
+@layer utilities {
+  /* Futuristic text gradient */
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glowing effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-intense {
+    box-shadow: var(--shadow-glow-intense);
+  }
+
+  /* Smooth fade animations */
+  .animate-fade-in-slow {
+    animation: fade-in 1s ease-out forwards;
+  }
+
+  /* Hover glow effect */
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transition: box-shadow 0.3s ease;
   }
 }

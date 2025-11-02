@@ -86,22 +86,25 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-24 bg-muted/20 relative">
+      {/* Subtle Background Effect */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
-              <MessageSquare className="h-4 w-4" />
-              <span className="text-sm font-medium">Get In Touch</span>
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm mb-6">
+              <MessageSquare className="h-4 w-4 text-primary" />
+              <span className="text-sm font-semibold text-primary">Contact Us</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Ready to Start Your Project?
+            <h2 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6">
+              Ready to<span className="text-gradient"> Launch?</span>
             </h2>
             
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Fill out the form below and we'll get back to you with a personalized quote
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+              Let's discuss your digital vision. We'll craft a personalized solution that propels your business forward
             </p>
           </div>
 
@@ -121,10 +124,10 @@ const ContactSection = () => {
                     <div>
                       <p className="font-medium text-card-foreground">Email</p>
                       <a 
-                        href="mailto:info@creativenexus.co.za" 
+                        href="mailto:info@zwiex.co.za" 
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        info@creativenexus.co.za
+                        info@zwiex.co.za
                       </a>
                     </div>
                   </div>

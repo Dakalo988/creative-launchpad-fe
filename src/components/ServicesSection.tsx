@@ -151,21 +151,24 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-background relative">
+    <section id="services" className="py-24 bg-background relative">
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      
       {/* Section Header */}
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
-            <Server className="h-4 w-4" />
-            <span className="text-sm font-medium">Our Services</span>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+            <Server className="h-4 w-4 text-primary" />
+            <span className="text-sm font-semibold text-primary">Our Services</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Choose Your Perfect Website
+          <h2 className="text-4xl md:text-6xl font-extrabold text-foreground">
+            Build Your<span className="text-gradient"> Digital Future</span>
           </h2>
           
-          <p className="text-lg text-muted-foreground">
-            All plans include 2 months of free hosting and a free domain name to get you started
+          <p className="text-xl text-muted-foreground font-light">
+            Premium web solutions with 2 months free hosting and a free domain to launch your vision
           </p>
         </div>
 

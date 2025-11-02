@@ -27,23 +27,28 @@ const ServiceCard = ({
   return (
     <div
       className={cn(
-        "relative rounded-xl border bg-card p-8 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
-        highlight && "border-primary shadow-lg ring-2 ring-primary/20"
+        "relative rounded-xl border bg-card/50 backdrop-blur-sm p-8 shadow-md transition-all duration-300 hover:shadow-glow hover:-translate-y-1 group",
+        highlight && "border-primary/50 shadow-lg ring-1 ring-primary/30 bg-card"
       )}
     >
+      {/* Subtle glow on highlight */}
+      {highlight && (
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent -z-10" />
+      )}
+
       {/* Highlight Badge */}
       {highlight && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <Badge className="bg-primary text-primary-foreground px-4 py-1 shadow-md">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+          <Badge className="bg-gradient-to-r from-primary to-cyan-400 text-primary-foreground px-4 py-1 shadow-md glow">
             Most Popular
           </Badge>
         </div>
       )}
 
       {/* Free Hosting Badge */}
-      <div className="absolute -top-3 right-6">
-        <Badge variant="secondary" className="shadow-sm text-xs">
-          🎁 2 Months Free Hosting & Domain
+      <div className="absolute -top-3 right-6 z-10">
+        <Badge variant="secondary" className="shadow-sm text-xs border border-primary/20">
+          🎁 2 Months Free
         </Badge>
       </div>
 

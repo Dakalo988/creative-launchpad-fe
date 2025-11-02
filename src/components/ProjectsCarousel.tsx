@@ -52,11 +52,16 @@ const ProjectsCarousel = () => {
   const items = Array.from({ length: DUPLICATION_FACTOR }, () => projects).flat();
 
   return (
-    <section aria-label="Projects we worked on" className="py-16 bg-background border-t">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">Projects we worked on</h2>
-          <p className="text-muted-foreground mt-2">Explore a few of our recent client websites</p>
+    <section aria-label="Projects we worked on" className="py-20 bg-background border-t border-primary/10 relative">
+      {/* Subtle background effect */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
+            Our<span className="text-gradient"> Success Stories</span>
+          </h2>
+          <p className="text-xl text-muted-foreground font-light">Explore a few of our recent client websites</p>
         </div>
 
         <div className="relative overflow-hidden">
@@ -69,14 +74,14 @@ const ProjectsCarousel = () => {
                 rel="noopener noreferrer"
                 className="shrink-0 group"
               >
-                <div className="flex items-center gap-3 pr-5 pl-2 py-2 bg-card border rounded-full text-sm text-card-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                <div className="flex items-center gap-3 pr-5 pl-2 py-2 bg-card/50 backdrop-blur-sm border border-primary/20 rounded-full text-sm text-card-foreground hover:bg-primary/10 hover:border-primary/50 transition-all hover:shadow-glow">
                   <img
                     src={project.image}
                     alt={`${project.name} website preview`}
-                    className="h-8 w-8 rounded-md object-cover border"
+                    className="h-8 w-8 rounded-md object-cover border border-primary/20"
                     loading="lazy"
                   />
-                  <span className="whitespace-nowrap">{project.name}</span>
+                  <span className="whitespace-nowrap font-medium">{project.name}</span>
                 </div>
               </a>
             ))}

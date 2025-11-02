@@ -15,16 +15,17 @@ const partners: Partner[] = [
 
 const PartnersSection = () => {
   return (
-    <section aria-label="Our partners" className="py-12 bg-muted/30 border-t">
+    <section aria-label="Our partners" className="py-16 bg-muted/20 border-t border-primary/10 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6">
-          <h3 className="text-lg font-semibold text-muted-foreground">Trusted by leading platforms</h3>
+        <div className="text-center mb-10 animate-fade-in">
+          <h3 className="text-2xl font-bold text-foreground">Powered by Industry Leaders</h3>
+          <p className="text-muted-foreground mt-2 font-light">Built with the best tools and platforms</p>
         </div>
-        <div className="grid grid-cols-3 gap-6 max-w-xl mx-auto items-center">
+        <div className="grid grid-cols-3 gap-8 max-w-xl mx-auto items-center animate-fade-in-up">
           {partners.map((p) => (
-            <div key={p.name} className="flex items-center justify-center">
-              <div className="bg-card border rounded-lg p-3 w-full max-w-[160px] flex items-center justify-center">
-                <img src={p.logo} alt={`${p.name} logo`} className="h-10 object-contain" loading="lazy" />
+            <div key={p.name} className="flex items-center justify-center group">
+              <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-xl p-4 w-full max-w-[180px] flex items-center justify-center transition-all hover:border-primary/50 hover:shadow-glow">
+                <img src={p.logo} alt={`${p.name} logo`} className="h-12 object-contain opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
               </div>
             </div>
           ))}
