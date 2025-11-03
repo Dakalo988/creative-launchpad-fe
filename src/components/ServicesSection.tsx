@@ -40,7 +40,7 @@ const servicesData = [
       "2 months free hosting",
       "Free domain name co.za included",
       "SSL certificate included",
-      "2 Email accounts setup",
+      // "2 Email accounts setup",
       
     ],
     hostingPrice: "R99",
@@ -59,7 +59,7 @@ const servicesData = [
       "2 months free hosting",
       "Free domain name co.za included",
       "SSL certificate included",
-      "5 Email accounts setup",
+      // "5 Email accounts setup",
     ],
     hostingPrice: "R99",
     highlight: true,
@@ -80,7 +80,7 @@ const servicesData = [
       "2 months free VPS hosting",
       "Free domain name co.za included",
       "SSL certificate included",
-      "10 Email accounts setup",
+      // "10 Email accounts setup",
       "Inventory management",
       
     ],

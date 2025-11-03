@@ -127,10 +127,10 @@ const EcommerceSolutions = () => {
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span>SSL certificate included</span>
                   </li>
-                  <li className="flex items-start gap-2 text-muted-foreground">
+                  {/* <li className="flex items-start gap-2 text-muted-foreground">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span>10 Email accounts setup</span>
-                  </li>
+                  </li> */}
                   <li className="flex items-start gap-2 text-muted-foreground">
                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span>Inventory management</span>

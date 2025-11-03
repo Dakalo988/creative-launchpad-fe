@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Rocket } from "lucide-react";
-import zwiexLogo from "@/assets/zwiex logo.jpg";
+import zwiexLogo from "@/assets/zwiex logo.png";
 
 const Hero = () => {
   const scrollToServices = () => {

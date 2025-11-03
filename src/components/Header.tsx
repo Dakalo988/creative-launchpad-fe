@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
-import zwiexLogo from "@/assets/zwiex logo.jpg";
+import zwiexLogo from "@/assets/zwiex logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -70,19 +78,35 @@ const Header = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
             </button>
             <button
-              onClick={() => (window.location.href = '/our-story')}
+              onClick={() => navigate('/our-story')}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-all relative group"
             >
               Our Story / About Us
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
             </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-all relative group"
-            >
-              Services
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-            </button>
+            <DropdownMenu open={isServicesOpen} onOpenChange={setIsServicesOpen}>
+              <DropdownMenuTrigger asChild>
+                <button className="text-sm font-medium text-muted-foreground hover:text-primary transition-all relative group inline-flex items-center gap-1">
+                  <span>Services</span>
+                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isServicesOpen ? "rotate-180" : "rotate-0")} />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem onClick={() => navigate('/website-development')}>
+                  Website Development
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate('/web-hosting')}>
+                  Web Hosting
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate('/ecommerce-solutions')}>
+                  Ecommerce Solutions
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate('/domain-registration')}>
+                  Domain Registration
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <button
               onClick={() => scrollToSection('services')}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-all relative group"
@@ -127,14 +151,14 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t animate-fade-in">
+          <div className="md:hidden py-4 border-t animate-fade-in bg-white dark:bg-black">
             <nav className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Appearance</span>
                 <ThemeToggle />
               </div>
               <button
-                onClick={() => (window.location.href = '/our-story')}
+                onClick={() => { navigate('/our-story'); setIsMobileMenuOpen(false); }}
                 className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Our Story / About Us
@@ -145,6 +169,41 @@ const Header = () => {
               >
                 Home
               </button>
+              <button
+                onClick={() => setIsMobileServicesOpen((v) => !v)}
+                className="flex items-center justify-between py-2 text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <span>Services</span>
+                <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isMobileServicesOpen ? "rotate-180" : "rotate-0")} />
+              </button>
+              {isMobileServicesOpen && (
+                <div className="pl-3 flex flex-col gap-2">
+                  <button
+                    onClick={() => { navigate('/website-development'); setIsMobileMenuOpen(false); setIsMobileServicesOpen(false); }}
+                    className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Website Development
+                  </button>
+                  <button
+                    onClick={() => { navigate('/web-hosting'); setIsMobileMenuOpen(false); setIsMobileServicesOpen(false); }}
+                    className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Web Hosting
+                  </button>
+                  <button
+                    onClick={() => { navigate('/ecommerce-solutions'); setIsMobileMenuOpen(false); setIsMobileServicesOpen(false); }}
+                    className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Ecommerce Solutions
+                  </button>
+                  <button
+                    onClick={() => { navigate('/domain-registration'); setIsMobileMenuOpen(false); setIsMobileServicesOpen(false); }}
+                    className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Domain Registration
+                  </button>
+                </div>
+              )}
               <button
                 onClick={() => scrollToSection('services')}
                 className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"

@@ -21,7 +21,16 @@
     <meta name="twitter:image" content="https://www.zwiex.co.za/og-image.jpg" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/src/assets/zwiex logo.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/zwiex logo.png" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LBZYPM4NDY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      // Disable automatic page_view; we'll send on route changes
+      gtag('config', 'G-LBZYPM4NDY', { send_page_view: false });
+    </script>
     <script>
       (function(){
         try{

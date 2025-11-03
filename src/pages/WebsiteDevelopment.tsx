@@ -42,14 +42,14 @@ const WebsiteDevelopment = () => {
             </div>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Your website is more than just a digital presence — it's your gateway to growth, your connection 
+                Your website is more than just a digital presence it's your gateway to growth, your connection 
                 to customers, and your competitive advantage. At ZwieX, we craft websites that don't just look 
                 stunning — they perform, convert, and scale with your business.
               </p>
               <p>
                 From sleek single-page portfolios to comprehensive business platforms, every line of code we write 
                 is optimized for speed, security, and success. We blend cutting-edge technology with intuitive 
-                design to create digital experiences that your customers will remember — and your competitors will envy.
+                design to create digital experiences that your customers will remember and your competitors will envy.
               </p>
             </div>
           </div>
@@ -106,10 +106,10 @@ const WebsiteDevelopment = () => {
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span>SSL certificate included</span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    {/* <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span>2 Email accounts setup</span>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
@@ -161,10 +161,10 @@ const WebsiteDevelopment = () => {
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span>SSL certificate included</span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    {/* <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span>5 Email accounts setup</span>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>

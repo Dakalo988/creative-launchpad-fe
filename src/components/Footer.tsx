@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
-import zwiexLogo from "@/assets/zwiex logo.jpg";
+import zwiexLogo from "@/assets/zwiex logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
