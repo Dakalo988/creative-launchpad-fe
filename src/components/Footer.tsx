@@ -4,6 +4,7 @@ import zwiexLogo from "@/assets/zwiex logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  
 
   return (
     <footer className="bg-card border-t border-primary/10">
@@ -85,6 +86,12 @@ const Footer = () => {
                 <Link to="/domain-registration" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group">
                   <span className="w-0 h-0.5 bg-primary transition-all group-hover:w-3" />
                   Domain Registration
+                </Link>
+              </li>
+              <li>
+                <Link to="/ats-optimized-cv" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group">
+                  <span className="w-0 h-0.5 bg-primary transition-all group-hover:w-3" />
+                  ATS-Optimized CV Services
                 </Link>
               </li>
             </ul>

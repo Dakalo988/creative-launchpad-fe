@@ -20,7 +20,7 @@ const DomainRegistration = () => {
               Secure Your<span className="text-gradient"> Digital Identity</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Claim your perfect domain name — included free with every website package
+              Claim your perfect domain name  included free with every website package
             </p>
           </div>
         </div>
@@ -42,14 +42,14 @@ const DomainRegistration = () => {
             </div>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Your domain name is your digital address — the first thing customers see and remember. At ZwieX, 
+                Your domain name is your digital address  the first thing customers see and remember. At ZwieX, 
                 we make securing your perfect domain simple and seamless. Every website package includes a free 
                 .co.za domain registration, so you can establish your South African presence from day one.
               </p>
               <p>
                 We handle the entire registration process for you, from availability checks to DNS configuration. 
                 Once registered, your domain is fully managed by us, ensuring it stays active, secure, and 
-                properly connected to your website. No technical knowledge required — just your vision, 
+                properly connected to your website. No technical knowledge required  just your vision, 
                 and we'll make it accessible to the world.
               </p>
             </div>

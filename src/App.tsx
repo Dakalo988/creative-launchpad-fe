@@ -12,6 +12,7 @@ import DomainRegistration from "./pages/DomainRegistration";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 import OurStory from "./pages/OurStory";
+import CVServices from "./pages/CVServices";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/web-hosting" element={<WebHosting />} />
           <Route path="/ecommerce-solutions" element={<EcommerceSolutions />} />
           <Route path="/domain-registration" element={<DomainRegistration />} />
+          <Route path="/ats-optimized-cv" element={<CVServices />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

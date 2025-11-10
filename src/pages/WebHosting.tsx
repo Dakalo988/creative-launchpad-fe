@@ -43,7 +43,7 @@ const WebHosting = () => {
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
                 Your website deserves hosting that's as powerful and reliable as your business. At ZwieX, 
-                we don't just host websites — we provide the foundation for your digital success. With 
+                we don't just host websites we provide the foundation for your digital success. With 
                 99.9% uptime, lightning-fast speeds, and round-the-clock support, your site stays online, 
                 secure, and performing at its best.
               </p>

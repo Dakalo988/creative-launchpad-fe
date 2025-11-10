@@ -105,6 +105,14 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => navigate('/domain-registration')}>
                   Domain Registration
                 </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => {
+                    navigate('/ats-optimized-cv');
+                    setIsServicesOpen(false);
+                  }}
+                >
+                  ATS-Optimized CV Services
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <button
@@ -201,6 +209,12 @@ const Header = () => {
                     className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Domain Registration
+                  </button>
+                  <button
+                    onClick={() => { navigate('/ats-optimized-cv'); setIsMobileMenuOpen(false); setIsMobileServicesOpen(false); }}
+                    className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    ATS-Optimized CV Services
                   </button>
                 </div>
               )}
