@@ -100,7 +100,10 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-primary/10 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} ZwieX. All rights reserved.</p>
+          <div className="mb-4 flex w-full justify-center">
+            <div id="google_translate_element" className="inline-block"></div>
+          </div>
+          <p> {currentYear} ZwieX. All rights reserved.</p>
         </div>
       </div>
     </footer>

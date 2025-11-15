@@ -29,6 +29,37 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // no-op: legacy header widget replaced with native select
+  }, [isMobileMenuOpen]);
+
+  const langs = [
+    { code: 'en', label: 'English' },
+    { code: 'af', label: 'Afrikaans' },
+    { code: 'zu', label: 'isiZulu' },
+    { code: 'xh', label: 'isiXhosa' },
+    { code: 'st', label: 'Sesotho' },
+    { code: 'tn', label: 'Setswana' },
+    { code: 'ts', label: 'Xitsonga' },
+    { code: 've', label: 'Tshivenda' },
+    { code: 'ss', label: 'siSwati' },
+    { code: 'nso', label: 'Sepedi' },
+    { code: 'nr', label: 'isiNdebele' },
+  ];
+
+  const applyTranslation = (targetLang: string) => {
+    const value = `/en/${targetLang}`;
+    const exp = new Date();
+    exp.setFullYear(exp.getFullYear() + 1);
+    const expires = `; expires=${exp.toUTCString()}`;
+    const host = window.location.hostname;
+    const parts = host.split('.');
+    const rootDomain = parts.length > 2 ? `.${parts.slice(-2).join('.')}` : `.${host}`;
+    document.cookie = `googtrans=${value}; path=/${expires}`;
+    document.cookie = `googtrans=${value}; domain=${rootDomain}; path=/${expires}`;
+    window.location.reload();
+  };
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
@@ -134,6 +165,19 @@ const Header = () => {
           {/* CTA + Theme Toggle - Desktop */}
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
+            <select
+              aria-label="Select language"
+              className="ml-2 bg-card text-foreground border border-primary/20 rounded-md px-2 py-1 text-sm"
+              defaultValue=""
+              onChange={(e) => {
+                const v = e.target.value; if (v) applyTranslation(v);
+              }}
+            >
+              <option value="" disabled>Select Language</option>
+              {langs.map(l => (
+                <option key={l.code} value={l.code}>{l.label}</option>
+              ))}
+            </select>
             <Button 
               variant="default"
               onClick={() => scrollToSection('services')}
@@ -218,6 +262,20 @@ const Header = () => {
                   </button>
                 </div>
               )}
+              <div className="flex items-center justify-between py-2">
+                <span className="text-sm font-medium text-muted-foreground">Language</span>
+                <select
+                  aria-label="Select language"
+                  className="bg-card text-foreground border border-primary/20 rounded-md px-2 py-1 text-sm"
+                  defaultValue=""
+                  onChange={(e) => { const v = e.target.value; if (v) { applyTranslation(v); setIsMobileMenuOpen(false); } }}
+                >
+                  <option value="" disabled>Select Language</option>
+                  {langs.map(l => (
+                    <option key={l.code} value={l.code}>{l.label}</option>
+                  ))}
+                </select>
+              </div>
               <button
                 onClick={() => scrollToSection('services')}
                 className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
